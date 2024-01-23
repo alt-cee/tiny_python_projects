@@ -27,9 +27,16 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    pos_arg = args.items
+    items = args.items
 
-    print(f'positional = "{pos_arg}"')
+    if len(items) == 1:
+        item_str = items[0]
+    elif len(items) == 2:
+        item_str = " and ".join(items)
+    else:
+        item_str = ", ".join(items[0:-1]) + ", and " + items[-1]
+
+    print(f"You are bringing {item_str}.")
 
 
 # --------------------------------------------------
