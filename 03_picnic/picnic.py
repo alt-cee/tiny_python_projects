@@ -19,6 +19,8 @@ def get_args():
 
     parser.add_argument("items", metavar="str", nargs="+", help="Items to bring")
 
+    parser.add_argument("-s", "--sorted", help="Sort list", action="store_true")
+
     return parser.parse_args()
 
 
@@ -28,6 +30,10 @@ def main():
 
     args = get_args()
     items = args.items
+    sort = args.sorted
+
+    if sort:
+        items = sorted(items)
 
     if len(items) == 1:
         item_str = items[0]
